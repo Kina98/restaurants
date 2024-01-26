@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('eddress');
             $table->string('type');
+            $table->foreignIdFor(\App\Models\User::class);
             $table->timestamps();
         });
     }
