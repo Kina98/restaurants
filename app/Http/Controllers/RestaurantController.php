@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreRestaurantRequest;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
@@ -31,19 +32,18 @@ class RestaurantController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRestaurantRequest $request)
     {
         $restaurant = Restaurant::make(
-            $request->only('name', 'address', 'type')
+            $request->validated()
         );
-     
+ 
         $request->user()->restaurants()->save(
             $restaurant
         );
-     
-        return redirect()->route('restaurants.index');
+ 
+        return redirect()->route('restaurants.show', $restaurant);
     }
-
     /**
      * Display the specified resource.
      */
@@ -69,13 +69,13 @@ class RestaurantController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Restaurant $restaurant)
+    public function update(StoreRestaurantRequest $request, Restaurant $restaurant)
     {
         $restaurant->update(
-            $request->only('name', 'address', 'type')
+            $request->validated()
         );
-     
-        return redirect()->route('restaurants.index');
+ 
+        return redirect()->route('restaurants.show', $restaurant);
     }
 
     /**
