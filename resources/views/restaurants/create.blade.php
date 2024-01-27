@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>Créer un restaurant</x-slot:title>
- 
+
     <h2 style="margin-bottom: 2rem">
         <a href="{{ route('restaurants.index') }}">Restaurants</a> / Créer un restaurant
     </h2>

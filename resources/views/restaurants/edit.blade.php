@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>Edition du restaurant {{ $restaurant->name }}</x-slot:title>
- 
+
     <h2 style="margin-bottom: 2rem">
         <a href="{{ route('restaurants.index') }}">Restaurants</a> /
         <a href="{{ route('restaurants.show', $restaurant) }}">{{ $restaurant->name }} </a> /

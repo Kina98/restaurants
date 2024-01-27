@@ -1,11 +1,11 @@
 <?php
- 
+
 namespace Database\Factories;
- 
+
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
- 
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
@@ -17,7 +17,7 @@ class UserFactory extends Factory
      * @var string
      */
     protected $model = User::class;
- 
+
     /**
      * Define the model's default state.
      *
@@ -34,7 +34,7 @@ class UserFactory extends Factory
             'role' => 'user',
         ];
     }
- 
+
     /**
      * Indicate that the model's email address should be unverified.
      *
@@ -48,7 +48,7 @@ class UserFactory extends Factory
             ];
         });
     }
- 
+
     public function admin()
     {
         return $this->state(function (array $attributes) {
